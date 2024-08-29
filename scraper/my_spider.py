@@ -9,7 +9,7 @@ class AnimeNewsSpider(scrapy.Spider):
         topfeed_div = response.css('div#topfeed')
 
         for article in topfeed_div.css('div.herald.box.news'):
-            link = article.css('div.thumbnail a::attr(href)').get()
+            link = article.css('div.wrap a::attr(href)').get()
 
             if link:
                 full_url = response.urljoin(link)
@@ -20,27 +20,18 @@ class AnimeNewsSpider(scrapy.Spider):
         title = ''.join(title).strip()
         title = ' '.join(title.split())
 
-        content_structure = []
-        for element in response.css('div.meat').xpath('*'):
-            if element.root.tag == 'p':
-                text = element.css('::text').getall()
-                text = ' '.join(text).strip()
-                if text:
-                    content_structure.append({'content': text})
-            elif element.root.tag == 'iframe':
-                iframe_src = element.css('::attr(src)').get()
-                if iframe_src:
-                    content_structure.append({'iframe': iframe_src})
-            elif element.root.tag == 'figure':
-                img_src = element.css('img::attr(src)').get()
-                if img_src:
-                    content_structure.append({'img': img_src})
+        content = response.css('div.meat *::text').getall()
+        content = ''.join(content).strip()
+        content = ' '.join(content.split())
 
-        insert_article(title, content_structure)
-        
+        title = title.encode('utf-8').decode('utf-8')
+        content = content.encode('utf-8').decode('utf-8')
 
+        insert_article(title, content)
+
+        print('test -------->', title, content)
 
         yield {
             'title': title,
-            'content': content_structure,
+            'content': content,
         }

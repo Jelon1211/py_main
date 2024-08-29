@@ -4,8 +4,8 @@ def get_connection():
     connection = pymysql.connect(
         host='db',
         user='root',
-        password='scrap_db',
-        database='rootpassword',
+        password='password',
+        database='scrap_db',
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
