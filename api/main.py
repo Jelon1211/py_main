@@ -1,1 +1,11 @@
-print('fast api')
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, World!"}
+
+@app.get("/status")
+def get_status():
+    return {"status": "API is running"}
