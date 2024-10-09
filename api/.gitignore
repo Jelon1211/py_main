@@ -19,7 +19,6 @@
 node_modules/**
 logs/*
 !logs/.gitignore
-config/server.development.js
 config/sender.config.json
 temp/**
 /build/
