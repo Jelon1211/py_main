@@ -41,6 +41,8 @@ class Server {
   private readonly mySqlDataSource: MySqlDataSource =
     MySqlDataSource.getInstance();
 
+  // test
+  
   public async start(): Promise<void> {
     try {
       this.logger.log(
