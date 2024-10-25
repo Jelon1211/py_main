@@ -29,3 +29,4 @@ dist/**
 !/assets/cert/.gitkeep
 .DS_Store
 .idea/material_theme_project_new.xml
+config/server.development.js
