@@ -24,10 +24,10 @@ class ScrappingPipeline:
         adapter = ItemAdapter(item)
         
         # Dodajemy komunikaty diagnostyczne
-        print('item ----->', item)
+        # print('item ----->', item)
 
-        health_check_query = "CALL health_check()"
-        self.db_manager.fetch_one(health_check_query)
+        # health_check_query = "CALL health_check()"
+        # self.db_manager.fetch_one(health_check_query)
         
         return item
 
