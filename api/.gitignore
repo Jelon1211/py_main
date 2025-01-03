@@ -19,14 +19,10 @@
 node_modules/**
 logs/*
 !logs/.gitignore
+config/server.development.js
 config/sender.config.json
+package-lock.json
 temp/**
 /build/
 coverage/
 .nyc_output/
-dist/**
-/assets/cert/*
-!/assets/cert/.gitkeep
-.DS_Store
-.idea/material_theme_project_new.xml
-config/server.development.js

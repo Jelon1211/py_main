@@ -35,7 +35,8 @@ class ExampleSpider(scrapy.Spider):
 
         yield {
             'topic': topic,
-            'content': content_plain
+            'content': content_plain,
+            'url': resposne.url
         }
 
 
